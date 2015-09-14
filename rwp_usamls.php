@@ -35,17 +35,21 @@ Licence: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @ since 0.1
  */
 
-add_action('admin_menu', 'rgvwp_usamls_net_admin_menu');		// create custom plugin settings menu
+// create custom plugin settings menu
+add_action('admin_menu', 'rgvwp_usamls_net_admin_menu');
+
 function rgvwp_usamls_net_admin_menu() {
-	add_menu_page( 													// create new top-level menu
-		'RGVWEBPRO IDX - Settings', 					// $page_title
-		'IDX Settings',		 										// $menu_title
-		'administrator', 											// $capability
-		'rgvwebpro_idx',											// $menu_slug
-		'rgvwp_usamls_net_function', 					// $function
-		plugins_url('/icon.svg	', __FILE__)	// $icon_url
+
+	// create new top-level menu
+	add_menu_page(
+		'RGVWEBPRO IDX - Settings', // $page_title
+		'IDX Settings', // $menu_title
+		'administrator', // $capability
+		'rgvwebpro_idx', // $menu_slug
+		'rgvwp_usamls_net_function', // $function
+		plugins_url('/icon.svg	', __FILE__) // $icon_url
 	);
-	add_action( 'admin_init', 'register_rwp_usamls_net' ); 		//call register settings function
+	add_action( 'admin_init', 'register_rwp_usamls_net' ); //call register settings function
 }
 
 /*
@@ -60,14 +64,14 @@ function rgvwp_usamls_net_admin_menu() {
  */
 
 function register_rwp_usamls_net() {
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_url' );					// USAMLS.NET BROKER URL
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search' );				// USAMLS.NET SEARCH URL
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_mu' );			// USAMLS.NET MultiUnit Search
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_land' );			// USAMLS.NET Land Search
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_commercial' );	// USAMLS.NET Commercial Search
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_rental' );		// USAMLS.NET Rental Search
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_com_lease' );	// USAMLS.NET Commercial Lease Search
-	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_shell_search' );		// USAMLS.NET CUSTOM SEARCH URL
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_url' ); // USAMLS.NET BROKER URL
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search' ); // USAMLS.NET SEARCH URL
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_mu' ); // USAMLS.NET MultiUnit Search
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_land' ); // USAMLS.NET Land Search
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_commercial' ); // USAMLS.NET Commercial Search
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_rental' ); // USAMLS.NET Rental Search
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_search_com_lease' ); // USAMLS.NET Commercial Lease Search
+	register_setting( 'rwp_usamls_sg_1','rwp_usamls_net_shell_search' ); // USAMLS.NET CUSTOM SEARCH URL
 }
 
 /*
