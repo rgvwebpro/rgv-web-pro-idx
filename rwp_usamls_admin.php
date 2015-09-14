@@ -1,15 +1,21 @@
 <?php
 /*
+ * 	INCLUDE EXTRA CODE AND STUFF
+ *
+ */
+include( plugin_dir_path( __FILE__ ) . '/inc/extras.php');
+
+/*
  * WORDPRESS DASHBOARD CUSTOM SETTINGS PAGE
  * http://codex.wordpress.org/Administration_Menus
- * 
+ *
  * WordPress $function administration page.
- * 
+ *
  * @ since 0.1
  */
 ?>
 <div class="wrap">
-	<h2><?php _e( 'RGV Web Pro IDX - Settings' ); ?></h2>
+	<h2><?php _e( 'RGVWEBPRO IDX - Settings' ); ?></h2>
 	<?php
 	// If the settings have been set in the /wp-admin/ area.
 	if ( isset($_GET['settings-updated']) == true ) {
@@ -25,8 +31,8 @@
 		<tr>
 			<th><?php _e( '<h4>USAMLS Username URL</h4>' ); ?></th>
 			<td>
-				<input type="text" name="rwp_usamls_net_url" value="<?php echo get_option( 'rwp_usamls_net_url' ); ?>" />
-				<?php 
+				<input type="text" name="rwp_usamls_net_url" value="<?php echo get_option( 'rwp_usamls_net_url' ); ?>" class="regular-text ltr" />
+				<?php
 					if( get_option( 'rwp_usamls_net_url' ) ) {
 						echo '<code>' . get_option( 'rwp_usamls_net_url' ) . '</code>';
 					} else {
@@ -39,16 +45,16 @@
 <?php
 /*
  * CUSTOM SETTINGS TABLE ROWS WITH VARIABLES
- * Generates template for use in the Dashboard. 
- * 
+ * Generates template for use in the Dashboard.
+ *
  * @ since 0.1
  */
 		function rwp_usamls_admin_tr( $usamls_property_type, $usamls_property_ID, $usamls_wp_setting, $usamls_wp_shortcode ) {
 			echo '				<tr><th><h4>Property Type ' . $usamls_property_ID . '<br />(' . $usamls_property_type . ')</h4></th><td>';
-			echo '<input type="text" id="rwp_id' . $usamls_property_ID . '_1" name="' . $usamls_wp_setting . '" value="' . get_option( $usamls_wp_setting ) . '" />';
+			echo '<input type="text" id="rwp_id' . $usamls_property_ID . '_1" name="' . $usamls_wp_setting . '" value="' . get_option( $usamls_wp_setting ) . '" class="regular-text ltr" />';
 			if(  get_option( 'rwp_usamls_net_url' ) && !get_option( $usamls_wp_setting )  ) {
 				echo '<p>Copy and paste the following URL ';
-				echo '<input type="text" id="rwp_id' . $usamls_property_ID . '_2" value="' . get_option( 'rwp_usamls_net_url' ) . '/default.asp?content=results&this_format=' . $usamls_property_ID . '" /> or ';
+				echo '<input type="text" id="rwp_id' . $usamls_property_ID . '_2" value="' . get_option( 'rwp_usamls_net_url' ) . '/default.asp?content=results&this_format=' . $usamls_property_ID . '" class="regular-text ltr" /> or ';
 				echo '<a href="#" onClick="javascript:document.getElementById(\'rwp_id' . $usamls_property_ID . '_1\').value=document.getElementById(\'rwp_id' . $usamls_property_ID . '_2\').value" >click here</a> to fill it in, then click "Save".</p>';
 			}
 			if( get_option( $usamls_wp_setting ) ) {
@@ -56,11 +62,11 @@
 			}
 			echo '</td></tr>' . "\n";
 		}
-		rwp_usamls_admin_tr( 'Residential', 		1, 'rwp_usamls_net_search', 			'usamls' );
-		rwp_usamls_admin_tr( 'Multi-Unit', 			2, 'rwp_usamls_net_search_mu', 			'usamls_multi' );
-		rwp_usamls_admin_tr( 'Land', 				3, 'rwp_usamls_net_search_land', 		'usamls_land' );
-		rwp_usamls_admin_tr( 'Commercial', 			4, 'rwp_usamls_net_search_commercial', 	'usamls_com' );
-		rwp_usamls_admin_tr( 'Rental', 				5, 'rwp_usamls_net_search_rental', 		'usamls_rental' );
+		rwp_usamls_admin_tr( 'Residential', 			1, 'rwp_usamls_net_search', 						'usamls' );
+		rwp_usamls_admin_tr( 'Multi-Unit', 				2, 'rwp_usamls_net_search_mu', 					'usamls_multi' );
+		rwp_usamls_admin_tr( 'Land', 							3, 'rwp_usamls_net_search_land', 				'usamls_land' );
+		rwp_usamls_admin_tr( 'Commercial', 				4, 'rwp_usamls_net_search_commercial', 	'usamls_com' );
+		rwp_usamls_admin_tr( 'Rental', 						5, 'rwp_usamls_net_search_rental', 			'usamls_rental' );
 		rwp_usamls_admin_tr( 'Commercial Lease', 	6, 'rwp_usamls_net_search_com_lease', 	'usamls_com_lease' );
 ?>
 	</tbody>
@@ -75,20 +81,20 @@
 			</th>
 			<td>
 				<input type="text" name="rwp_usamls_net_shell_search" value="<?php echo get_option( 'rwp_usamls_net_shell_search' ); ?>" />
-				<?php if ( get_option( 'rwp_usamls_net_shell_search' ) ) { ?> 
+				<?php if ( get_option( 'rwp_usamls_net_shell_search' ) ) { ?>
 					<?php _e( '<p>Shortcode: <code>[usamls_search]</code></p> ' ); ?>
 					<div>
-						<?php _e( '<h3>Add Search Forms to your Website</h3>' ); ?>
-						<?php _e( '<p>The following form can be added to Sidebar Text Widgets for added functionality.</p>' ); ?>
-						<textarea style="width: 300px; height: 250px;"><!--RESIDENTIAL SEARCH--><form action="<?php echo get_option( 'rwp_usamls_net_shell_search' ); ?>" method="post"><input type="hidden" name="do_search_results" value="true" />MLS Number: <input type="type" name="item1" placeholder="MLS Number" style="width:100px" /><br />Area: <input type="type" name="item90" placeholder="City Name" style="width:100px" /><br />Price From: <input type="text" name="item2" placeholder="100" style="width:30px" />,<input type="text" name="item2_comma" placeholder="000" style="width:30px" /><br />Price To: <input type="text" name="item2a" placeholder="250" style="width:30px" />,<input type="text" name="item2a_comma" placeholder="000" style="width:30px" /><br /><input type="submit" value="Search MLS" /></form></textarea>
+						<?php _e( '<h4>Integration Code</h4>' ); ?>
+						<?php _e( '<p>The following form can be added to various areas of your Website for added functionality.</p>' ); ?>
+						<textarea rows="10" cols="50" class="large-text code"><?php echo rgvwp_usamls_net_textarea_widget_code(); ?></textarea>
 					</div>
 				<?php } ?>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<div style="margin: 20px 0;">
-	<input type="submit" value="Save RGV Web Pro IDX Settings" style="font-size: 1.3em; padding: 1em;" />
+<div>
+	<input class="button button-primary" type="submit" value="Save RGVWEBPRO IDX Settings" />
 </div>
 </form>
 </div>

@@ -1,17 +1,15 @@
 <?php
 /*
-Plugin Name: RGV Web Pro IDX
+Plugin Name: RGVWEBPRO IDX
 Plugin URI: https://github.com/rgvwebpro/RGVWEBPRO-IDX
-Description: <strong>RGV Web Pro IDX</strong> is a simple plugin for Real Estate Websites that offer their visitors iFrame content from <a href="http://usamls.net">USAMLS.NET</a> by <a href="http://www.seisystems.com/">Systems Engineering, Inc.</a>.  Simply input a respective shortcode in the WYSIWYG editor and update the search values via the Custom Fields area.  This plugin has been tested and works well with <a href="http://www.advancedcustomfields.com/">Advanced Custom Fields</a>.
-Author: RGV Web Pro
+Description: <strong>RGVWEBPRO IDX</strong> is a simple plugin for Real Estate Websites that offer their visitors iFrame content from <a href="http://usamls.net">USAMLS.NET</a> by <a href="http://www.seisystems.com/">Systems Engineering, Inc.</a>.  Simply input a respective shortcode in the WYSIWYG editor and update the search values via the Custom Fields area.
+Author: RGVWEBPRO
 Version: 0.1.2
-Author URI: https://rgvwebpro.com/business/services/wordpress
+Author URI: https://rgvwebpro.com/
 Licence: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
 /*
-	Copyright 2011-2012  Jorge Alberto Saldivar  (email : webmaster@rgvwebpro.com)
-
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
 	published by the Free Software Foundation.
@@ -39,13 +37,13 @@ Licence: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 add_action('admin_menu', 'rgvwp_usamls_net_admin_menu');		// create custom plugin settings menu
 function rgvwp_usamls_net_admin_menu() {
-	add_menu_page( 												// create new top-level menu
-		'RGV Web Pro IDX - Settings', 							// $page_title
-		'IDX Settings',		 									// $menu_title
-		'administrator', 										// $capability
-		'rgvwebpro_idx',										// $menu_slug
-		'rgvwp_usamls_net_function', 							// $function
-		plugins_url('/icon.svg	', __FILE__)					// $icon_url
+	add_menu_page( 													// create new top-level menu
+		'RGVWEBPRO IDX - Settings', 					// $page_title
+		'IDX Settings',		 										// $menu_title
+		'administrator', 											// $capability
+		'rgvwebpro_idx',											// $menu_slug
+		'rgvwp_usamls_net_function', 					// $function
+		plugins_url('/icon.svg	', __FILE__)	// $icon_url
 	);
 	add_action( 'admin_init', 'register_rwp_usamls_net' ); 		//call register settings function
 }

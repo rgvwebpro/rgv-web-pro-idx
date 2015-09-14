@@ -16,9 +16,9 @@ RGVWEBPRO IDX enables Real Estate Websites (offering content from http://usamls.
 
 == Installation ==
 
-1. Upload plugin file directory to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Place respective shortcodes in posts and update Custom Fields with respective values
+1. Upload plugin file directory to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Place respective shortcodes in posts and update Custom Fields with respective values.
 
 == Frequently Asked Questions ==
 
