@@ -8,7 +8,7 @@ RGVWEBPRO IDX enables Real Estate Websites (offering content from http://usamls.
 
 ## How To
 
-Must of the installation and setup is manual. Future updates may include automatted features.
+Much of the installation and setup is manual. Future updates may include automatted features.
 
 ### Installation
 
