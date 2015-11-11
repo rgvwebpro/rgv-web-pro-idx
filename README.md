@@ -30,7 +30,7 @@ Follow these instructions to get started. Setup is a bit janky since the plugin 
 
 ### Setup MLS Search Page
 
-This is assuming your MLS page is usign the following permalink structure, <code>http://www.example.com/mls</code> and your search page will be <code>http://www.example.com/mls/search</code>.
+This is assuming your MLS page is using the following permalink structure, <code>http://www.example.com/mls</code> and your search page will be <code>http://www.example.com/mls/search</code>.
 
 1. Navigate to <strong>WordPress Dashboard</strong>.
 2. Go to page <strong>IDX Settings</strong>.
